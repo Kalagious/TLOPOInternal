@@ -24,5 +24,5 @@ public:
 
 	HookManager* hookManager;
 
-	Speed* speed;
+	Fly* speed;
 };

@@ -1,16 +1,15 @@
-#include "speed.h"
+#include "fly.h"
 
-Speed::Speed(Player* localPlayerIn)
+Fly::Fly(Player* localPlayerIn)
 {
-	name = "Speed";
-	horzSpeedMult = 0.1;
+	name = "Fly";
 	vertSpeedMult = 0.1;
 	enable = false;
 	localPlayer = localPlayerIn;
 }
 
 
-bool Speed::tick()
+bool Fly::tick()
 {
 	NextPosObject* nextPos = localPlayer->nextPosObject;
 	printf("X: %f.2  Y: %f.2\n", nextPos->x, nextPos->y);

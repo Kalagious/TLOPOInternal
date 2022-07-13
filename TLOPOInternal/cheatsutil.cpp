@@ -17,7 +17,7 @@ Cheats::Cheats()
 
 	hookManager = new HookManager(tlopoExe);
 	localPlayer = (Player*)0x000001B9732C48B0;
-	speed = new Speed(localPlayer);
+	speed = new Fly(localPlayer);
 
 
 	uninject = false;
@@ -29,7 +29,7 @@ void Cheats::tick()
 	keybinds();
 	if (addressesAreValid)
 	{
-		//speed->tick();
+		//Blah
 	}
 	else
 	{

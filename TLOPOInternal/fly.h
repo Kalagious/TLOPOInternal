@@ -3,12 +3,12 @@
 #include "general.h"
 #include "Player.h"
 
-class Speed : public Module
+class Fly : public Module
 {
 public:
-	Speed(Player* localPlayer);
+	Fly(Player* localPlayer);
 	bool tick();
-	float vertSpeedMult, horzSpeedMult;
+	float vertSpeedMult;
 	Vector3 virtualPos;
 	Player* localPlayer;
 };
