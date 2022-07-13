@@ -3,7 +3,7 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="speed.cpp">
+    <ClCompile Include="fly.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="cheatskeybinds.cpp">
@@ -31,7 +31,7 @@
     <ClInclude Include="module.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="speed.h">
+    <ClInclude Include="fly.h">
       <Filter>Modules</Filter>
     </ClInclude>
     <ClInclude Include="cheats.h">
