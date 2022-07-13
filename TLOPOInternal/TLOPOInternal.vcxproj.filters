@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="speed.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="cheatskeybinds.cpp">
+      <Filter>Cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="cheatsutil.cpp">
+      <Filter>Cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="hookmanager.cpp">
+      <Filter>Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks.cpp">
+      <Filter>Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="testinghook.cpp">
+      <Filter>Hooks</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="general.h" />
+    <ClInclude Include="offsets.h" />
+    <ClInclude Include="allmodules.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="module.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="speed.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="cheats.h">
+      <Filter>Cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="NextPosObject.h">
+      <Filter>ReversedClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="hookmanager.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="hookoffsets.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="hooks.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="testinghook.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="allclasses.h">
+      <Filter>ReversedClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ReversedClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralObject.h">
+      <Filter>ReversedClasses</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Modules">
+      <UniqueIdentifier>{823a6afc-a034-4df5-8990-66114cfc5efc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cheats">
+      <UniqueIdentifier>{df1068a7-906d-4ef3-815b-5e525ded4d87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks">
+      <UniqueIdentifier>{6fb71066-0c63-4199-a0dd-78e45567d5f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ReversedClasses">
+      <UniqueIdentifier>{64f0b7d6-fe90-4826-b75e-e9792a65e4dd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
