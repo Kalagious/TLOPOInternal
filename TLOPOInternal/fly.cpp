@@ -1,18 +1,23 @@
 #include "fly.h"
+#include "cheats.h"
 
-Fly::Fly(Player* localPlayerIn)
+
+extern Cheats* cheatsGlobal;
+
+
+Fly::Fly(Cheats* cheatsIn)
 {
 	name = "Fly";
 	vertSpeedMult = 0.1;
 	enable = false;
-	localPlayer = localPlayerIn;
+	cheats = cheatsIn;
 }
 
 
 bool Fly::tick()
 {
-	NextPosObject* nextPos = localPlayer->nextPosObject;
-	printf("X: %f.2  Y: %f.2\n", nextPos->x, nextPos->y);
+	NextPosObject* nextPos = cheats->localPlayer->nextPosObject;
+	//printf("X: %f.2  Y: %f.2\n", nextPos->x, nextPos->y);
 	if (enable)
 	{
 		if (GetAsyncKeyState(VK_SPACE))

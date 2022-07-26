@@ -1,0 +1,1 @@
+del C:\Program Files\TLOPO\cache-test\*

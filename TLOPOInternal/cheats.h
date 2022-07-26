@@ -1,8 +1,11 @@
 #pragma once
 #include "hookmanager.h"
+#include "functionmanager.h"
 #include "allmodules.h"
 #include "module.h"
 #include "allclasses.h"
+#include "roguepython.h"
+
 
 class Cheats {
 public:
@@ -23,6 +26,11 @@ public:
 	std::vector<Module*> modules;
 
 	HookManager* hookManager;
+	FunctionManager* functionManager;
+	RoguePython* roguePython;
 
-	Fly* speed;
+	Fly* fly;
+	Zoooom* zoooom;
+	MinigunGoBurr* minigunGoBurr;
+	TurnyBoi* turnyBoi;
 };

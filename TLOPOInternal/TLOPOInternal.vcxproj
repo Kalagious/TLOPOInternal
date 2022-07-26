@@ -96,11 +96,13 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\Jordan\AppData\Local\Programs\Python\Python36\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>C:\Users\Jordan\AppData\Local\Programs\Python\Python36\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -114,6 +116,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\Jordan\AppData\Local\Programs\Python\Python36\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -121,6 +124,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>C:\Users\Jordan\AppData\Local\Programs\Python\Python36\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -131,11 +135,13 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Users\Jordan\AppData\Local\Programs\Python\Python36\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>C:\Users\Jordan\AppData\Local\Programs\Python\Python36\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -148,6 +154,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Users\Jordan\AppData\Local\Programs\Python\Python36\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -155,33 +162,53 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>C:\Users\Jordan\AppData\Local\Programs\Python\Python36\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="allclasses.h" />
     <ClInclude Include="allmodules.h" />
+    <ClInclude Include="function.h" />
+    <ClInclude Include="functionmanager.h" />
     <ClInclude Include="GeneralObject.h" />
+    <ClInclude Include="minigungoburr.h" />
     <ClInclude Include="module.h" />
     <ClInclude Include="cheats.h" />
     <ClInclude Include="general.h" />
     <ClInclude Include="hookmanager.h" />
-    <ClInclude Include="hookoffsets.h" />
+    <ClInclude Include="hookdata.h" />
     <ClInclude Include="hooks.h" />
     <ClInclude Include="NextPosObject.h" />
     <ClInclude Include="offsets.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PyMarshal_ReadObjectFromString.h" />
+    <ClInclude Include="PyFunction_NewWithQualNameHook.h" />
+    <ClInclude Include="PyObject_SetAttrHook.h" />
+    <ClInclude Include="PyVarObject.h" />
+    <ClInclude Include="roguepython.h" />
     <ClInclude Include="testinghook.h" />
     <ClInclude Include="fly.h" />
+    <ClInclude Include="turnyboi.h" />
+    <ClInclude Include="zoooom.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cheatskeybinds.cpp" />
     <ClCompile Include="cheatsutil.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="function.cpp" />
+    <ClCompile Include="functionmanager.cpp" />
     <ClCompile Include="hookmanager.cpp" />
     <ClCompile Include="hooks.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="minigungoburr.cpp" />
+    <ClCompile Include="PyMarshal_ReadObjectFromStrin.cpp" />
+    <ClCompile Include="PyFunction_NewWithQualNameHook.cpp" />
+    <ClCompile Include="PyObject_SetAttrHook.cpp" />
+    <ClCompile Include="roguepython.cpp" />
     <ClCompile Include="testinghook.cpp" />
     <ClCompile Include="fly.cpp" />
+    <ClCompile Include="turnyboi.cpp" />
+    <ClCompile Include="zoooom.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

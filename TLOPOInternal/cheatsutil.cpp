@@ -1,6 +1,7 @@
 #include "cheats.h"
 #include "windows.h"
 #include "offsets.h"
+#include "Python.h"
 
 #define gModule(x) (void*)GetModuleHandle(x)
 
@@ -8,16 +9,16 @@
 Cheats::Cheats()
 {
 	uninject = true;
-	serverCheatsEnabled = true;
-
-
 	tlopoExe = gModule(L"tlopo.exe");
 
-	// Set up different function managers
-
 	hookManager = new HookManager(tlopoExe);
-	localPlayer = (Player*)0x000001B9732C48B0;
-	speed = new Fly(localPlayer);
+	functionManager = new FunctionManager(tlopoExe);
+	roguePython = new RoguePython(this);
+	printf("%p\n", roguePython->createFloat(30));
+	fly = new Fly(this);
+	zoooom = new Zoooom(this);
+	minigunGoBurr = new MinigunGoBurr(this);
+	turnyBoi = new TurnyBoi(this);
 
 
 	uninject = false;
@@ -41,11 +42,14 @@ void Cheats::recalculateAddresses()
 {
 	printf(" [!] Recalculating Addresses\n");
 	hookManager->InitalizeHooks();
+	roguePython->init();
+
+	//functionManager->scanFunctions();
 	addressesAreValid = true;
 }
 
 void Cheats::cleanup()
 {
-	printf(" [!] Exiting!\n");
+	printf(" [*] Exiting!\n");
 	hookManager->removeAll();
 }

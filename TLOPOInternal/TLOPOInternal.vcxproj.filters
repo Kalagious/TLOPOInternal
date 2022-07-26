@@ -3,14 +3,20 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="fly.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
     <ClCompile Include="cheatskeybinds.cpp">
       <Filter>Cheats</Filter>
     </ClCompile>
     <ClCompile Include="cheatsutil.cpp">
       <Filter>Cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="testinghook.cpp">
+      <Filter>Hooks\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="PyFunction_NewWithQualNameHook.cpp">
+      <Filter>Hooks\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="PyObject_SetAttrHook.cpp">
+      <Filter>Hooks\Hooks</Filter>
     </ClCompile>
     <ClCompile Include="hookmanager.cpp">
       <Filter>Hooks</Filter>
@@ -18,8 +24,29 @@
     <ClCompile Include="hooks.cpp">
       <Filter>Hooks</Filter>
     </ClCompile>
-    <ClCompile Include="testinghook.cpp">
-      <Filter>Hooks</Filter>
+    <ClCompile Include="functionmanager.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="function.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="PyMarshal_ReadObjectFromStrin.cpp">
+      <Filter>Functions\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="fly.cpp">
+      <Filter>Modules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="zoooom.cpp">
+      <Filter>Modules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="minigungoburr.cpp">
+      <Filter>Modules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="roguepython.cpp">
+      <Filter>RoguePython</Filter>
+    </ClCompile>
+    <ClCompile Include="turnyboi.cpp">
+      <Filter>Modules\Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -31,25 +58,13 @@
     <ClInclude Include="module.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="fly.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="cheats.h">
       <Filter>Cheats</Filter>
     </ClInclude>
     <ClInclude Include="NextPosObject.h">
       <Filter>ReversedClasses</Filter>
     </ClInclude>
-    <ClInclude Include="hookmanager.h">
-      <Filter>Hooks</Filter>
-    </ClInclude>
-    <ClInclude Include="hookoffsets.h">
-      <Filter>Hooks</Filter>
-    </ClInclude>
-    <ClInclude Include="hooks.h">
-      <Filter>Hooks</Filter>
-    </ClInclude>
-    <ClInclude Include="testinghook.h">
+    <ClInclude Include="hookdata.h">
       <Filter>Hooks</Filter>
     </ClInclude>
     <ClInclude Include="allclasses.h">
@@ -61,11 +76,50 @@
     <ClInclude Include="GeneralObject.h">
       <Filter>ReversedClasses</Filter>
     </ClInclude>
+    <ClInclude Include="testinghook.h">
+      <Filter>Hooks\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="PyFunction_NewWithQualNameHook.h">
+      <Filter>Hooks\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="PyObject_SetAttrHook.h">
+      <Filter>Hooks\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="PyVarObject.h">
+      <Filter>ReversedClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="hookmanager.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="hooks.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="functionmanager.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="function.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="PyMarshal_ReadObjectFromString.h">
+      <Filter>Functions\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="fly.h">
+      <Filter>Modules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="zoooom.h">
+      <Filter>Modules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="minigungoburr.h">
+      <Filter>Modules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="roguepython.h">
+      <Filter>RoguePython</Filter>
+    </ClInclude>
+    <ClInclude Include="turnyboi.h">
+      <Filter>Modules\Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Modules">
-      <UniqueIdentifier>{823a6afc-a034-4df5-8990-66114cfc5efc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Cheats">
       <UniqueIdentifier>{df1068a7-906d-4ef3-815b-5e525ded4d87}</UniqueIdentifier>
     </Filter>
@@ -74,6 +128,24 @@
     </Filter>
     <Filter Include="ReversedClasses">
       <UniqueIdentifier>{64f0b7d6-fe90-4826-b75e-e9792a65e4dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks\Hooks">
+      <UniqueIdentifier>{1cbf96f1-c666-4866-80b0-d3c27084fc83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules">
+      <UniqueIdentifier>{823a6afc-a034-4df5-8990-66114cfc5efc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Functions">
+      <UniqueIdentifier>{ff35dc6a-4083-4fcc-9c3f-bc38682c8d50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Functions\Functions">
+      <UniqueIdentifier>{ea94edd0-3219-493b-9864-4b4ab275f19b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Modules">
+      <UniqueIdentifier>{453f33e4-ec36-4f44-9cfc-7577a0b62307}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RoguePython">
+      <UniqueIdentifier>{10388704-1985-462c-8dde-4df13bcfb06e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

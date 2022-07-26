@@ -1,8 +1,14 @@
 #include <iostream>
 #include <Windows.h>
 #include <TlHelp32.h>
+#include <fstream>
 
 // Injector for CSGO internal cheats
+bool fileExists(const std::string& name) {
+    std::ifstream f(name.c_str());
+    return f.good();
+}
+
 
 DWORD GetProcId(const wchar_t* procName)
 {
@@ -32,7 +38,14 @@ DWORD GetProcId(const wchar_t* procName)
 
 uint32_t main()
 {
-    const char* dllPath = "C:\\Users\\Jordan\\Documents\\Cheats\\TLOPO\\x64\\Debug\\TLOPOInternal.dll";
+    char dllPath[512];
+    GetCurrentDirectoryA(512, dllPath);
+    std::string cwdStr(dllPath);
+    cwdStr += "\\TLOPOInternal.dll";
+    if (!fileExists(cwdStr))
+        strcpy_s(dllPath, "C:\\Users\\Jordan\\Documents\\Cheats\\TLOPO\\x64\\Debug\\TLOPOInternal.dll");
+    else
+        strcpy_s(dllPath, cwdStr.c_str());
 
     DWORD procId = 0;
 
@@ -53,7 +66,7 @@ uint32_t main()
         if (!loc) {
             throw std::exception("VALLOC failed");
         }
-        printf("Memory allocated at %#8X\n",(uintptr_t) loc);
+        printf("Memory allocated at %#8X\n", (uintptr_t)loc);
 
         WriteProcessMemory(hProc, loc, dllPath, strlen(dllPath) + 1, 0);
         printf("DLL Path Written");
@@ -70,6 +83,5 @@ uint32_t main()
     {
         CloseHandle(hProc);
     }
-
     return 0;
 }

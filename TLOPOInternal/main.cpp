@@ -19,6 +19,9 @@ void mainCode(HMODULE hModule)
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &info);
 	printf(" [*] Starting!\n");
 	::ShowWindow(::GetConsoleWindow(), SW_SHOW);
+	SetWindowTextA(::GetConsoleWindow(), "Ricardo is god");
+
+
 
 	Cheats cheats;
 	cheatsGlobal = &cheats;

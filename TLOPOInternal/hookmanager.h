@@ -6,7 +6,8 @@
 #include <stdint.h>
 #include <tchar.h>
 #include "testinghook.h"
-//#include "setclientviewangleshook.h"
+#include "PyFunction_NewWithQualNameHook.h"
+#include "PyObject_SetAttrHook.h"
 
 class HookManager
 {
@@ -17,7 +18,8 @@ public:
 	void removeAll();
 	void InitalizeHooks();
 	TestingHook* testingHook;
-
+	PyFunction_NewWithQualNameHook* pyFunction_NewWithQualNameHook;
+	PyObject_SetAttrHook* pyObject_SetAttrHook;
 	void* tlopoExe;
 
 };

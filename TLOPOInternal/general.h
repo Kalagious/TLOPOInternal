@@ -7,6 +7,7 @@
 #include <WinDef.h>
 #include <tchar.h>
 #include <iostream>
+#include "Python.h"
 #pragma warning(disable: 26495)
 
 

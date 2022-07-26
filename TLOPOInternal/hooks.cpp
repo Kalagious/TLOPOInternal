@@ -5,65 +5,7 @@
 #include <tlHelp32.h>
 #include <stdint.h>
 #include <tchar.h>
-
-
-//bool Hook::detour32(uintptr_t src, uintptr_t dst, uint32_t len)
-//{
-//	if (len < 5) return false;
-//
-//	DWORD oldProtect;
-//	VirtualProtect((BYTE*)src, len, PAGE_EXECUTE_READWRITE, &oldProtect);
-//
-//	uintptr_t relativeAddress = dst - src - 5;
-//
-//	// Save the original stolen bytes to be later replaced
-//	memcpy(stolenBytes, (BYTE*)src, len);
-//
-//	memset((BYTE*)src, 0x90, len);
-//
-//
-//	*(uintptr_t*)src = 0xE9;
-//	*(uintptr_t*)(src + 1) = relativeAddress;
-//
-//
-//	VirtualProtect((BYTE*)src, len, oldProtect, &oldProtect);
-//	return true;
-//}
-
-void Hook::PrintHookPrompt()
-{
-	printf("	Hooking %s\n", hookName.c_str());
-}
-
-
-//uintptr_t Hook::trampoline32(uintptr_t src, uintptr_t dst, uint32_t len)
-//{
-//	if (len < 5) return NULL;
-//	uintptr_t gatewayAddr = (uintptr_t)VirtualAlloc(NULL, len, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
-//
-//	if (!gatewayAddr)
-//	{
-//		printf(" [!] Error allocating gateway\n");
-//		return false;
-//	}
-//
-//	DWORD oldProtect;
-//	VirtualProtect((BYTE*)src, len, PAGE_EXECUTE_READWRITE, &oldProtect);
-//	memcpy((BYTE*)gatewayAddr, (BYTE*)src, len);
-//	VirtualProtect((BYTE*)src, len, oldProtect, &oldProtect);
-//
-//	uintptr_t relativeAddrFrGatewayToSrc = (uintptr_t)(src - 5) - gatewayAddr;
-//
-//	*(uintptr_t*)(gatewayAddr + len) = 0xE9;
-//	*(uintptr_t*)(gatewayAddr + len + 1) = relativeAddrFrGatewayToSrc;
-//
-//	detour32(src, dst, len);
-//
-//	trampAddr = gatewayAddr;
-//
-//	return gatewayAddr;
-//}
-
+#include <psapi.h>
 
 
 bool Hook::remove()
@@ -76,7 +18,6 @@ bool Hook::remove()
 	enabled = false;
 	return true;
 }
-
 
 
 void* Hook::DetourFunction64(void* pSource, void* pDestination, int dwLen)
@@ -115,4 +56,59 @@ void* Hook::DetourFunction64(void* pSource, void* pDestination, int dwLen)
 
 	VirtualProtect(pSource, dwLen, dwOld, &dwOld);
 	return (void*)((DWORD_PTR)pTrampoline);
+}
+
+
+void* Hook::signatureScan(std::vector<uint8_t> bpSig, int32_t iOffset, void* pBase)
+{
+	if (bpSig.size() <= 0)
+	{
+		printf("	[!] Sig is empty!\n");
+		return NULL;
+	}
+
+
+	MODULEINFO miModule;
+	GetModuleInformation(GetCurrentProcess(), (HMODULE)pBase, &miModule, sizeof(miModule));
+	uint64_t iModuleSize = miModule.SizeOfImage;
+
+	if (!pBase || !iModuleSize)
+	{
+		printf(" [!] Error finding module during Sig Scan!\n");
+		return NULL;
+	}
+
+	void* pCurrRegion = 0;
+	void* pCurrRegionEnd = 0;
+	MEMORY_BASIC_INFORMATION miMemInfo;
+    int32_t iSuccessiveMatches = 0;
+    for (uint64_t iBaseOffset = 0; iBaseOffset < iModuleSize; iBaseOffset++)
+    {
+		if ((uint64_t)pBase + iBaseOffset > (uint64_t)pCurrRegionEnd)
+		{
+			VirtualQuery((void*)((uint64_t)pBase + iBaseOffset), &miMemInfo, sizeof(miMemInfo));
+			if (miMemInfo.State == 0x1000 && miMemInfo.Protect == 0x40)
+			{
+				pCurrRegion = miMemInfo.BaseAddress;
+				pCurrRegionEnd = (void*)((uint64_t)pCurrRegion + miMemInfo.RegionSize);
+			}
+		}
+		
+
+		if (pCurrRegion < (void*)((uint64_t)pBase + iBaseOffset) && (void*)((uint64_t)pBase + iBaseOffset) < pCurrRegionEnd)
+		{
+
+			if (*(uint8_t*)((uint64_t)pBase + iBaseOffset) == bpSig.at(iSuccessiveMatches) || bpSig.at(iSuccessiveMatches) == 0x3F)
+			    iSuccessiveMatches++;
+			else
+			    iSuccessiveMatches = 0;
+
+			if (iSuccessiveMatches >= bpSig.size())
+			{
+				printf(" 	[*] Found %s at %p\n", hookName.c_str(), (void*)((uint64_t)pBase + iBaseOffset - bpSig.size() - iOffset + 1));
+				return (void*)((uint64_t)pBase + iBaseOffset - bpSig.size() - iOffset + 1);
+			}
+		}
+    }
+    return NULL;
 }
