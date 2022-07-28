@@ -1,0 +1,138 @@
+{
+  "main": {
+    "id": "0c969ed0ac973144",
+    "type": "split",
+    "children": [
+      {
+        "id": "2ab28a281689e040",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Attack Aura.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1695e0638978040e",
+    "type": "split",
+    "children": [
+      {
+        "id": "9b57361b210d3abb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2750048a150d67e6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "f6ce4d471be645e6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b81d5a5d6480c167",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "df5790ebee1a8fb8",
+    "type": "split",
+    "children": [
+      {
+        "id": "0832cb598c003645",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a4ed7e6a814a0f59",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Attack Aura.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "35374bec1a266b3d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Attack Aura.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "be51708dfc61992a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "e15dda36e4fd0d31",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Attack Aura.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "2ab28a281689e040",
+  "lastOpenFiles": [
+    "Entity List.md",
+    "No Cooldown.md",
+    "Modified Damage.md",
+    "Attack Aura.md"
+  ]
+}

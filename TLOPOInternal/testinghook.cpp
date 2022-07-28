@@ -21,10 +21,10 @@ void __fastcall TestingHook::hookFunction(int64_t a1, int64_t a2, int64_t a3)
 		tmpStr = (char*)&tmp->pName;
 	
 
-	if (!cheatsGlobal->localPlayer && tmpStr.find("Ricardo-") != std::string::npos)
+	if (!cheatsGlobal->localPlayer && tmpStr.find("Bill-") != std::string::npos)
 	{
 		cheatsGlobal->localPlayer = (Player*)a1;
-		
+		 
 	}
 
 	if ((uint64_t)cheatsGlobal->localPlayer && (Player*)a1 == cheatsGlobal->localPlayer)

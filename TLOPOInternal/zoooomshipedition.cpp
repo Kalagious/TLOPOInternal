@@ -5,10 +5,10 @@
 extern Cheats* cheatsGlobal;
 
 
-Zoooom::Zoooom(Cheats* cheatsIn)
+ZoooomShipEdition::ZoooomShipEdition(Cheats* cheatsIn)
 {
-	name = "Zooooom";
-	fSpeed = 3.55;
+	name = "Zooooom (Ship Ed.)";
+	fSpeed = 3.8;
 	enable = false;
 	cheats = cheatsIn;
 	pSpeedFloat = NULL;
@@ -16,7 +16,7 @@ Zoooom::Zoooom(Cheats* cheatsIn)
 }
 
 
-PyObject* Zoooom::tick()
+PyObject* ZoooomShipEdition::tick()
 {
 	if (!pSpeedFloat)
 	{

@@ -48,6 +48,15 @@
     <ClCompile Include="turnyboi.cpp">
       <Filter>Modules\Modules</Filter>
     </ClCompile>
+    <ClCompile Include="PyDict_SetItemHook.cpp">
+      <Filter>Hooks\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="zoooomshipedition.cpp">
+      <Filter>Modules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="__pypperoni_IMPL_call_funcHook.cpp">
+      <Filter>Hooks\Hooks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="general.h" />
@@ -117,6 +126,15 @@
     </ClInclude>
     <ClInclude Include="turnyboi.h">
       <Filter>Modules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="PyDict_SetItemHook.h">
+      <Filter>Hooks\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="zoooomshipedition.h">
+      <Filter>Modules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="__pypperoni_IMPL_call_funcHook.h">
+      <Filter>Hooks\Hooks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

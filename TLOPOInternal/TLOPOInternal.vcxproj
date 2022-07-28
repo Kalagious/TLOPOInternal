@@ -181,6 +181,7 @@
     <ClInclude Include="NextPosObject.h" />
     <ClInclude Include="offsets.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PyDict_SetItemHook.h" />
     <ClInclude Include="PyMarshal_ReadObjectFromString.h" />
     <ClInclude Include="PyFunction_NewWithQualNameHook.h" />
     <ClInclude Include="PyObject_SetAttrHook.h" />
@@ -190,6 +191,8 @@
     <ClInclude Include="fly.h" />
     <ClInclude Include="turnyboi.h" />
     <ClInclude Include="zoooom.h" />
+    <ClInclude Include="zoooomshipedition.h" />
+    <ClInclude Include="__pypperoni_IMPL_call_funcHook.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cheatskeybinds.cpp" />
@@ -201,6 +204,7 @@
     <ClCompile Include="hooks.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="minigungoburr.cpp" />
+    <ClCompile Include="PyDict_SetItemHook.cpp" />
     <ClCompile Include="PyMarshal_ReadObjectFromStrin.cpp" />
     <ClCompile Include="PyFunction_NewWithQualNameHook.cpp" />
     <ClCompile Include="PyObject_SetAttrHook.cpp" />
@@ -209,6 +213,8 @@
     <ClCompile Include="fly.cpp" />
     <ClCompile Include="turnyboi.cpp" />
     <ClCompile Include="zoooom.cpp" />
+    <ClCompile Include="zoooomshipedition.cpp" />
+    <ClCompile Include="__pypperoni_IMPL_call_funcHook.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

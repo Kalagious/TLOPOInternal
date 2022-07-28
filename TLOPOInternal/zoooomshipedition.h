@@ -5,10 +5,10 @@
 
 class Cheats;
 
-class Zoooom : public Module
+class ZoooomShipEdition : public Module
 {
 public:
-	Zoooom(Cheats* cheatsIn);
+	ZoooomShipEdition(Cheats* cheatsIn);
 	PyObject* tick();
 	float fSpeed;
 	Cheats* cheats;

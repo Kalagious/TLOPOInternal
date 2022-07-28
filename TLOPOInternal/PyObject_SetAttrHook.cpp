@@ -10,27 +10,29 @@
 extern Cheats* cheatsGlobal;
 
 
+#define TEST_ATTRIBUTE(x) cheatsGlobal->roguePython->vAttr2Str.at(cheatsGlobal->roguePython->ATTRIBUTES.x) == (uint64_t)pAttributeName
+
 PyObject_SetAttrHook::tTargetPtr PyObject_SetAttrHook::oFunction;
 
 
 int64_t __fastcall PyObject_SetAttrHook::hookFunction(PyObject* pObject, PyObject* pAttributeName, PyObject* pValue)
 {
+	cheatsGlobal->roguePython->readAttribute((PyObject*)pAttributeName);
+
 
 	PyVarObjectCust* tmp = (PyVarObjectCust*)pAttributeName;
 	std::string tmpAttName(tmp->sName);
-	Object* tmpObject = (Object*)(pObject+8);
-
-
-	if (tmpAttName.find("Inventory") != std::string::npos)
-	{
-		printf("%s  -  %p  -  %p  -  %p\n", tmp->sName, pObject, pAttributeName, pValue);
-		//return PyObject_SetAttrHook::oFunction(pObject, pAttributeName, (PyObject*)0x0000017D90D71A88);
-	}
-
 		
+
+
+
+
+
+
+
 	if (cheatsGlobal->turnyBoi->enable)
 	{
-		if (tmpAttName.find("rotation") != std::string::npos)
+		if (TEST_ATTRIBUTE(SHIPROTATIONSPEED))
 		{
 			PyObject* tmpTurn = cheatsGlobal->turnyBoi->tick();
 			if (((RogueFloat*)(pValue))->fValue != 0 && tmpTurn)
@@ -40,26 +42,40 @@ int64_t __fastcall PyObject_SetAttrHook::hookFunction(PyObject* pObject, PyObjec
 
 	if (cheatsGlobal->zoooom->enable)
 	{
-		if (tmpAttName.find("speed") != std::string::npos)
+		if (TEST_ATTRIBUTE(SPEED))
 		{
-			if (tmpAttName.find("Ship") != std::string::npos)
-				cheatsGlobal->zoooom->fSpeed = 4;
-			else
-				cheatsGlobal->zoooom->fSpeed = 3.6;
 			cheatsGlobal->zoooom->tick();
 			if (((RogueFloat*)(pValue))->fValue != 0)
 				return PyObject_SetAttrHook::oFunction(pObject, pAttributeName, (PyObject*)cheatsGlobal->zoooom->pSpeedFloat);
 		}
 	}
 
+	if (cheatsGlobal->zoooomShipEdition->enable)
+	{
+		if (TEST_ATTRIBUTE(SHIPSPEED))
+		{
+			cheatsGlobal->zoooomShipEdition->tick();
+			if (((RogueFloat*)(pValue))->fValue != 0)
+				return PyObject_SetAttrHook::oFunction(pObject, pAttributeName, (PyObject*)cheatsGlobal->zoooomShipEdition->pSpeedFloat);
+		}
+	}
+
 	if (cheatsGlobal->minigunGoBurr->enable)
 	{
-		if (tmpAttName.find("recharge") != std::string::npos)
+		if (TEST_ATTRIBUTE(CANNONRECHARGE))
 		{
 			cheatsGlobal->minigunGoBurr->tick();
 			return PyObject_SetAttrHook::oFunction(pObject, pAttributeName, (PyObject*)cheatsGlobal->minigunGoBurr->pRechargeFloat);
 		}
 	}
+
+
+
+	//if (tmpAttName.find("otation") != std::string::npos)
+	//{
+	//	printf("%s  -  %p  -  %p  -  %p\n", tmpAttName.c_str(), pObject, pAttributeName, pValue);
+	//}
+
 	return PyObject_SetAttrHook::oFunction(pObject, pAttributeName, pValue);
 }
 

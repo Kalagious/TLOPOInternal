@@ -10,16 +10,15 @@ Cheats::Cheats()
 {
 	uninject = true;
 	tlopoExe = gModule(L"tlopo.exe");
-
+	roguePython = new RoguePython(this);
 	hookManager = new HookManager(tlopoExe);
 	functionManager = new FunctionManager(tlopoExe);
-	roguePython = new RoguePython(this);
-	printf("%p\n", roguePython->createFloat(30));
 	fly = new Fly(this);
 	zoooom = new Zoooom(this);
+	zoooomShipEdition = new ZoooomShipEdition(this);
 	minigunGoBurr = new MinigunGoBurr(this);
+	minigunGoBurr->enable = true;
 	turnyBoi = new TurnyBoi(this);
-
 
 	uninject = false;
 	addressesAreValid = false;
@@ -41,8 +40,8 @@ void Cheats::tick()
 void Cheats::recalculateAddresses()
 {
 	printf(" [!] Recalculating Addresses\n");
-	hookManager->InitalizeHooks();
 	roguePython->init();
+	hookManager->InitalizeHooks();
 
 	//functionManager->scanFunctions();
 	addressesAreValid = true;

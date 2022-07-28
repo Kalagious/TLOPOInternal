@@ -15,7 +15,6 @@ public:
 	void recalculateAddresses();
 	void cleanup();
 
-	bool serverCheatsEnabled;
 	bool uninject;
 	bool addressesAreValid;
 
@@ -31,6 +30,7 @@ public:
 
 	Fly* fly;
 	Zoooom* zoooom;
+	ZoooomShipEdition* zoooomShipEdition;
 	MinigunGoBurr* minigunGoBurr;
 	TurnyBoi* turnyBoi;
 };
