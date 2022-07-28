@@ -28,7 +28,6 @@ public:
 	void readAttribute(PyObject* pAttributeName);
 	RogueFloat* createFloat(float fValue);
 	Cheats* cheats;
-	void* pFloatType;
 
 	struct _attributes
 	{

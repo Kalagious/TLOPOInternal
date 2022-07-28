@@ -5,7 +5,6 @@
 #include <stdint.h>
 #include <tchar.h>
 #include <iostream>
-#include "hookdata.h"
 #include "general.h"
 
 #pragma warning(disable:26495)

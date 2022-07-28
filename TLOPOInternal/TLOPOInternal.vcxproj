@@ -176,10 +176,8 @@
     <ClInclude Include="cheats.h" />
     <ClInclude Include="general.h" />
     <ClInclude Include="hookmanager.h" />
-    <ClInclude Include="hookdata.h" />
     <ClInclude Include="hooks.h" />
     <ClInclude Include="NextPosObject.h" />
-    <ClInclude Include="offsets.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PyDict_SetItemHook.h" />
     <ClInclude Include="PyMarshal_ReadObjectFromString.h" />

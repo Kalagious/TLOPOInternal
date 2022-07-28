@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="general.h" />
-    <ClInclude Include="offsets.h" />
     <ClInclude Include="allmodules.h">
       <Filter>Modules</Filter>
     </ClInclude>
@@ -72,9 +71,6 @@
     </ClInclude>
     <ClInclude Include="NextPosObject.h">
       <Filter>ReversedClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="hookdata.h">
-      <Filter>Hooks</Filter>
     </ClInclude>
     <ClInclude Include="allclasses.h">
       <Filter>ReversedClasses</Filter>

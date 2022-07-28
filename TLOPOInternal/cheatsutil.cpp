@@ -1,6 +1,5 @@
 #include "cheats.h"
 #include "windows.h"
-#include "offsets.h"
 #include "Python.h"
 
 #define gModule(x) (void*)GetModuleHandle(x)

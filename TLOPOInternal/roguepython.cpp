@@ -1,17 +1,14 @@
 #include "roguepython.h"
 #include "cheats.h"
-#include "offsets.h"
 
 RoguePython::RoguePython(Cheats* cheatsIn)
 {
 	cheats = cheatsIn;
-	pFloatType = (void*)((uint64_t)cheats->tlopoExe+oPyFloatOffset);
 }
 
 
 void RoguePython::init()
 {
-	pFloatType = (void*)((uint64_t)cheats->tlopoExe + oPyFloatOffset);
 
 	for (int i = 0; i < 20; i++)
 	{
@@ -24,14 +21,14 @@ void RoguePython::init()
 
 RogueFloat* RoguePython::createFloat(float fValue)
 {
-	if (!pFloatType)
+	if (!vPyTypes.at(TYPES.FLOAT))
 		return NULL;
 	
 	RogueFloat* tmpFloat = new RogueFloat();
 	if (!tmpFloat)
 		return NULL;
 	tmpFloat->iRefCnt = 10;
-	tmpFloat->PyType = pFloatType;
+	tmpFloat->PyType = (RogueFloat*)vPyTypes.at(TYPES.FLOAT);
 	tmpFloat->fValue = fValue;
 
 	return tmpFloat;
@@ -41,22 +38,30 @@ void RoguePython::readType(PyObject* pValue)
 {
 
 	char* pTypeName = (char*)((uint64_t*)((uint64_t*)pValue)[1])[3];
+	uint64_t pType = ((uint64_t*)pValue)[1];
 
-
-	if (vPyTypes.at(TYPES.METHOD) == NULL)
+	if (vPyTypes.at(TYPES.FLOAT) == NULL)
+	{
+		if (!strcmp(pTypeName, "float"))
+		{
+			printf(" [*] RP - Float Type Found\n");
+			vPyTypes.at(TYPES.FLOAT) = pType;
+		}
+	}
+	else if (vPyTypes.at(TYPES.METHOD) == NULL)
 	{
 		if (!strcmp(pTypeName, "method"))
 		{
 			printf(" [*] RP - Method Type Found\n");
-			vPyTypes.at(TYPES.METHOD) = ((uint64_t*)pValue)[1];
+			vPyTypes.at(TYPES.METHOD) = pType;
 		}
 	}
-	if (vPyTypes.at(TYPES.BUILTIN) == NULL)
+	else if (vPyTypes.at(TYPES.BUILTIN) == NULL)
 	{
 		if (!strcmp(pTypeName, "builtin_function_or_method"))
 		{
 			printf(" [*] RP - BuiltIn Type Found\n");
-			vPyTypes.at(TYPES.BUILTIN) = ((uint64_t*)pValue)[1];
+			vPyTypes.at(TYPES.BUILTIN) = pType;
 		}
 	}
 }
