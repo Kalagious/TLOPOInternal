@@ -24,15 +24,6 @@
     <ClCompile Include="hooks.cpp">
       <Filter>Hooks</Filter>
     </ClCompile>
-    <ClCompile Include="functionmanager.cpp">
-      <Filter>Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="function.cpp">
-      <Filter>Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="PyMarshal_ReadObjectFromStrin.cpp">
-      <Filter>Functions\Functions</Filter>
-    </ClCompile>
     <ClCompile Include="fly.cpp">
       <Filter>Modules\Modules</Filter>
     </ClCompile>
@@ -99,15 +90,6 @@
     <ClInclude Include="hooks.h">
       <Filter>Hooks</Filter>
     </ClInclude>
-    <ClInclude Include="functionmanager.h">
-      <Filter>Functions</Filter>
-    </ClInclude>
-    <ClInclude Include="function.h">
-      <Filter>Functions</Filter>
-    </ClInclude>
-    <ClInclude Include="PyMarshal_ReadObjectFromString.h">
-      <Filter>Functions\Functions</Filter>
-    </ClInclude>
     <ClInclude Include="fly.h">
       <Filter>Modules\Modules</Filter>
     </ClInclude>
@@ -148,12 +130,6 @@
     </Filter>
     <Filter Include="Modules">
       <UniqueIdentifier>{823a6afc-a034-4df5-8990-66114cfc5efc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Functions">
-      <UniqueIdentifier>{ff35dc6a-4083-4fcc-9c3f-bc38682c8d50}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Functions\Functions">
-      <UniqueIdentifier>{ea94edd0-3219-493b-9864-4b4ab275f19b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules\Modules">
       <UniqueIdentifier>{453f33e4-ec36-4f44-9cfc-7577a0b62307}</UniqueIdentifier>

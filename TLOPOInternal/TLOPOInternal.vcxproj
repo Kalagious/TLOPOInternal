@@ -168,8 +168,6 @@
   <ItemGroup>
     <ClInclude Include="allclasses.h" />
     <ClInclude Include="allmodules.h" />
-    <ClInclude Include="function.h" />
-    <ClInclude Include="functionmanager.h" />
     <ClInclude Include="GeneralObject.h" />
     <ClInclude Include="minigungoburr.h" />
     <ClInclude Include="module.h" />
@@ -180,7 +178,6 @@
     <ClInclude Include="NextPosObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PyDict_SetItemHook.h" />
-    <ClInclude Include="PyMarshal_ReadObjectFromString.h" />
     <ClInclude Include="PyFunction_NewWithQualNameHook.h" />
     <ClInclude Include="PyObject_SetAttrHook.h" />
     <ClInclude Include="PyVarObject.h" />
@@ -196,14 +193,11 @@
     <ClCompile Include="cheatskeybinds.cpp" />
     <ClCompile Include="cheatsutil.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="function.cpp" />
-    <ClCompile Include="functionmanager.cpp" />
     <ClCompile Include="hookmanager.cpp" />
     <ClCompile Include="hooks.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="minigungoburr.cpp" />
     <ClCompile Include="PyDict_SetItemHook.cpp" />
-    <ClCompile Include="PyMarshal_ReadObjectFromStrin.cpp" />
     <ClCompile Include="PyFunction_NewWithQualNameHook.cpp" />
     <ClCompile Include="PyObject_SetAttrHook.cpp" />
     <ClCompile Include="roguepython.cpp" />
