@@ -6,7 +6,10 @@ The game is written in python using Panda3D, and then "compiled" using a custom 
 <br />
 <br />
 Cheats:<br />
-Fly (Numpad 4)
-<br />
-<br />
-*Note: In order to get this working, you must change your user name in cheatsutil.cpp
+
+Zoooom(Speed) - Mouse 4
+ZoooomShipEdition(Speed) - Mouse 5
+Fly - Numpad 4
+TurnyBoi(Fast Ship Turns) - Numpad 5
+MinigunGoBurr(No Cannon Reload) - Numpad 6
+CooldownsAreCringe(No Cooldown) - Always active for now, will be changed later. NOTE* Some abilities will have no cooldown on the animation, but will have no effect
