@@ -14,8 +14,6 @@ PyDict_SetItemHook::tTargetPtr PyDict_SetItemHook::oFunction;
 
 int64_t __fastcall PyDict_SetItemHook::hookFunction(int64_t a1, int64_t a2, int64_t a3)
 {
-	PyVarObjectCust* tmp = (PyVarObjectCust*)a2;
-	//printf("%s\n", tmp->sName);
 	return PyDict_SetItemHook::oFunction(a1, a2, a3);
 }
 

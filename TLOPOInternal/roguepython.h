@@ -35,21 +35,21 @@ public:
 		static const uint32_t SHIPSPEED = 1;
 		static const uint32_t SHIPROTATIONSPEED = 2;
 		static const uint32_t CANNONRECHARGE = 3;
+		static const uint32_t GETRECHARGETIME = 4;
+
 	} ATTRIBUTES;
 
 	struct _types
 	{
 		static const uint32_t FLOAT = 0;
-		static const uint32_t INT = 1;
-		static const uint32_t STRING = 2;
-		static const uint32_t DICT = 3;
-		static const uint32_t LIST = 4;
-		static const uint32_t FUNCTION = 5;
-		static const uint32_t METHOD = 6;
-		static const uint32_t BUILTIN = 7;
-
-
-
+		static const uint32_t METHOD = 1;
+		static const uint32_t BUILTIN = 2;
+		static const uint32_t INT = 3;
+		static const uint32_t STRING = 4;
+		static const uint32_t DICT = 5;
+		static const uint32_t LIST = 6;
+		static const uint32_t FUNCTION = 7;
+	
 	} TYPES;
 
 

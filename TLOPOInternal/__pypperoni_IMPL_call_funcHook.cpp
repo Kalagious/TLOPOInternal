@@ -5,6 +5,7 @@
 #include "cheats.h"
 #include "GeneralObject.h"
 #include <fstream>
+#define TEST_STRING(x) cheatsGlobal->roguePython->vAttr2Str.at(cheatsGlobal->roguePython->ATTRIBUTES.x) == (uint64_t)pAttributeName
 
 extern Cheats* cheatsGlobal;
 
@@ -21,15 +22,17 @@ uint64_t __fastcall __pypperoni_IMPL_call_funcHook::hookFunction(PyObject*** pSt
 	uint64_t pRetVal = __pypperoni_IMPL_call_funcHook::oFunction(pStackPointer, iOpArg, pKwargs);
 
 	cheatsGlobal->roguePython->readType(method);
+
 	if (cheatsGlobal->roguePython->vPyTypes.at(cheatsGlobal->roguePython->TYPES.METHOD) == (uint64_t)((RogueObject*)method)->PyType)
 	{
 		PyObject* function = (PyObject*)((uint64_t*)method)[2];
-		PyVarObjectCust* tmp = (PyVarObjectCust*)((uint64_t*)function)[8];
-		std::string tmpAttName(tmp->sName);
-		if (tmpAttName.find("RechargeTime") != std::string::npos)
+		PyObject* pAttributeName = (PyObject*)((uint64_t*)function)[8];
+		cheatsGlobal->roguePython->readAttribute(pAttributeName);
+		if (TEST_STRING(GETRECHARGETIME))
 		{
 			((RogueFloat*)pRetVal)->fValue = 0;
 		}
+
 	}
 
 	return pRetVal;

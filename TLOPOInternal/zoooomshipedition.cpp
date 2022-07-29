@@ -16,11 +16,13 @@ ZoooomShipEdition::ZoooomShipEdition(Cheats* cheatsIn)
 }
 
 
-PyObject* ZoooomShipEdition::tick()
+bool ZoooomShipEdition::tick()
 {
 	if (!pSpeedFloat)
 	{
 		pSpeedFloat = cheats->roguePython->createFloat(fSpeed);
+		if (!pSpeedFloat)
+			return false;
 	}
 
 	if (pSpeedFloat)
@@ -30,5 +32,5 @@ PyObject* ZoooomShipEdition::tick()
 	}
 
 
-	return NULL;
+	return true;
 }
