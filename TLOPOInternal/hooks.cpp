@@ -61,6 +61,7 @@ void* Hook::DetourFunction64(void* pSource, void* pDestination, int dwLen)
 
 void* Hook::signatureScan(std::vector<uint8_t> bpSig, int32_t iOffset, void* pBase)
 {
+
 	if (bpSig.size() <= 0)
 	{
 		printf("	[!] Sig is empty!\n");

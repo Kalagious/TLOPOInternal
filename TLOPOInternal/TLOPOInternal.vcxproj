@@ -182,7 +182,8 @@
     <ClInclude Include="PyObject_SetAttrHook.h" />
     <ClInclude Include="PyVarObject.h" />
     <ClInclude Include="roguepython.h" />
-    <ClInclude Include="testinghook.h" />
+    <ClInclude Include="SwapBuffersHook.h" />
+    <ClInclude Include="UnamedHook.h" />
     <ClInclude Include="fly.h" />
     <ClInclude Include="turnyboi.h" />
     <ClInclude Include="zoooom.h" />
@@ -201,7 +202,8 @@
     <ClCompile Include="PyFunction_NewWithQualNameHook.cpp" />
     <ClCompile Include="PyObject_SetAttrHook.cpp" />
     <ClCompile Include="roguepython.cpp" />
-    <ClCompile Include="testinghook.cpp" />
+    <ClCompile Include="SwapBuffersHook.cpp" />
+    <ClCompile Include="UnamedHook.cpp" />
     <ClCompile Include="fly.cpp" />
     <ClCompile Include="turnyboi.cpp" />
     <ClCompile Include="zoooom.cpp" />

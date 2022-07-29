@@ -8,9 +8,12 @@
 Cheats::Cheats()
 {
 	uninject = true;
+
 	tlopoExe = gModule(L"tlopo.exe");
+	openGl32 = gModule(L"OPENGL32.dll");
+
 	roguePython = new RoguePython(this);
-	hookManager = new HookManager(tlopoExe);
+	hookManager = new HookManager(tlopoExe, openGl32);
 
 
 
@@ -52,4 +55,5 @@ void Cheats::cleanup()
 {
 	printf(" [*] Exiting!\n");
 	hookManager->removeAll();
+	Sleep(100);
 }

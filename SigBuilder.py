@@ -1,15 +1,16 @@
 import re
 
 
-raw = """33 C9             xor     ecx, ecx
-tlopo.exe:00007FF6838F4FB3 48 89 48 50       mov     [rax+50h], rcx
-tlopo.exe:00007FF6838F4FB7 48 FF 45 00       inc     qword ptr [rbp+0]
-tlopo.exe:00007FF6838F4FBB 48 89 68 10       mov     [rax+10h], rbp
-tlopo.exe:00007FF6838F4FBF 48 FF 06          inc     qword ptr [rsi]
-tlopo.exe:00007FF6838F4FC2 48 89 70 18       mov     [rax+18h], rsi
-tlopo.exe:00007FF6838F4FC6 48 8B 45 50       mov     rax, [rbp+50h]
-tlopo.exe:00007FF6838F4FCA 48 89 43 40       mov     [rbx+40h], rax
-tlopo.exe:00007FF6838F4FCE 48 FF 00"""
+raw = """48 89 5C 24 08    mov     [rsp+arg_0], rbx
+OPENGL32:00007FF927696299 48 89 6C 24 10    mov     [rsp+arg_8], rbp
+OPENGL32:00007FF92769629E 48 89 74 24 18    mov     [rsp+arg_10], rsi
+OPENGL32:00007FF9276962A3 57                push    rdi
+OPENGL32:00007FF9276962A4 41 56             push    r14
+OPENGL32:00007FF9276962A6 41 57             push    r15
+OPENGL32:00007FF9276962A8 48 83 EC 50       sub     rsp, 50h
+OPENGL32:00007FF9276962AC 48 8B 2A          mov     rbp, [rdx]
+OPENGL32:00007FF9276962AF 4C 8B F9          mov     r15, rcx
+OPENGL32:00007FF9276962B2 48 85 ED"""
 
 matches = re.findall(r'([0-9A-F]{2})[ \n\+]{1}', raw)
 
