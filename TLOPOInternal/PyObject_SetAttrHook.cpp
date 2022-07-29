@@ -35,20 +35,14 @@ uint64_t __fastcall PyObject_SetAttrHook::hookFunction(PyObject* pObject, PyObje
 			pModValue = tmpTurn;
 	}
 	else if (cheatsGlobal->zoooom->enable && TEST_STRING(SPEED))
-	{
 		if (cheatsGlobal->zoooom->tick() && ((RogueFloat*)(pValue))->fValue != 0)
 			pModValue = (uint64_t)cheatsGlobal->zoooom->pSpeedFloat;
-	}
 	else if (cheatsGlobal->zoooomShipEdition->enable && TEST_STRING(SHIPSPEED))
-	{
 		if (cheatsGlobal->zoooomShipEdition->tick() && ((RogueFloat*)(pValue))->fValue != 0)
 			pModValue = (uint64_t)cheatsGlobal->zoooomShipEdition->pSpeedFloat;
-	}
 	else if (cheatsGlobal->minigunGoBurr->enable && TEST_STRING(CANNONRECHARGE))
-	{
 		if (cheatsGlobal->minigunGoBurr->tick())
 			pModValue = (uint64_t)cheatsGlobal->minigunGoBurr->pRechargeFloat;
-	}
 
 	if (!pModValue)
 		pModValue = (uint64_t)pValue;
