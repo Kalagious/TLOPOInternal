@@ -1,4 +1,4 @@
-# TLOPOInternal
+# Freebooter
 
 This is a cheat client for The Legend of Pirates Online.
 
