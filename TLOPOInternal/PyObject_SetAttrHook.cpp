@@ -10,7 +10,7 @@
 extern Cheats* cheatsGlobal;
 
 
-#define TEST_ATTRIBUTE(x) cheatsGlobal->roguePython->vAttr2Str.at(cheatsGlobal->roguePython->ATTRIBUTES.x) == (uint64_t)pAttributeName
+#define TEST_STRING(x) cheatsGlobal->roguePython->vAttr2Str.at(cheatsGlobal->roguePython->ATTRIBUTES.x) == (uint64_t)pAttributeName
 
 PyObject_SetAttrHook::tTargetPtr PyObject_SetAttrHook::oFunction;
 
@@ -26,33 +26,33 @@ uint64_t __fastcall PyObject_SetAttrHook::hookFunction(PyObject* pObject, PyObje
 	std::string tmpAttName(tmp->sName);
 		
 
-	uint64_t pModValue;
+	uint64_t pModValue = 0;
 
-	if (cheatsGlobal->turnyBoi->enable && TEST_ATTRIBUTE(SHIPROTATIONSPEED))
+	if (cheatsGlobal->turnyBoi->enable && TEST_STRING(SHIPROTATIONSPEED))
 	{
-		if (((RogueFloat*)(pValue))->fValue != 0)
-			pModValue = (uint64_t)cheatsGlobal->turnyBoi->tick();
+		uint64_t tmpTurn = (uint64_t)cheatsGlobal->turnyBoi->tick();
+		if (tmpTurn && ((RogueFloat*)(pValue))->fValue != 0)
+			pModValue = tmpTurn;
 	}
-	else if (cheatsGlobal->zoooom->enable && TEST_ATTRIBUTE(SPEED))
+	else if (cheatsGlobal->zoooom->enable && TEST_STRING(SPEED))
 	{
-		cheatsGlobal->zoooom->tick();
-		if (((RogueFloat*)(pValue))->fValue != 0)
+		if (cheatsGlobal->zoooom->tick() && ((RogueFloat*)(pValue))->fValue != 0)
 			pModValue = (uint64_t)cheatsGlobal->zoooom->pSpeedFloat;
 	}
-	else if (cheatsGlobal->zoooomShipEdition->enable && TEST_ATTRIBUTE(SHIPSPEED))
+	else if (cheatsGlobal->zoooomShipEdition->enable && TEST_STRING(SHIPSPEED))
 	{
-		cheatsGlobal->zoooomShipEdition->tick();
-		if (((RogueFloat*)(pValue))->fValue != 0)
+		if (cheatsGlobal->zoooomShipEdition->tick() && ((RogueFloat*)(pValue))->fValue != 0)
 			pModValue = (uint64_t)cheatsGlobal->zoooomShipEdition->pSpeedFloat;
 	}
-	else if (cheatsGlobal->minigunGoBurr->enable && TEST_ATTRIBUTE(CANNONRECHARGE))
+	else if (cheatsGlobal->minigunGoBurr->enable && TEST_STRING(CANNONRECHARGE))
 	{
-		cheatsGlobal->minigunGoBurr->tick();
-		pModValue = (uint64_t)cheatsGlobal->minigunGoBurr->pRechargeFloat;
+		if (cheatsGlobal->minigunGoBurr->tick())
+			pModValue = (uint64_t)cheatsGlobal->minigunGoBurr->pRechargeFloat;
 	}
-	else
-		pModValue = (uint64_t)pValue;
 
+	if (!pModValue)
+		pModValue = (uint64_t)pValue;
+	
 	return PyObject_SetAttrHook::oFunction(pObject, pAttributeName, (PyObject*)pModValue);
 }
 

@@ -16,7 +16,7 @@ Zoooom::Zoooom(Cheats* cheatsIn)
 }
 
 
-PyObject* Zoooom::tick()
+bool Zoooom::tick()
 {
 	if (!pSpeedFloat)
 	{
@@ -28,7 +28,5 @@ PyObject* Zoooom::tick()
 		if (pSpeedFloat->fValue != fSpeed)
 			pSpeedFloat->fValue = fSpeed;
 	}
-
-
-	return NULL;
+	return true;
 }

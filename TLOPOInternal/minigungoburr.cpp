@@ -19,6 +19,8 @@ bool MinigunGoBurr::tick()
 	if (!pRechargeFloat)
 	{
 		pRechargeFloat = cheats->roguePython->createFloat(0);
+		if (!pRechargeFloat)
+			return false;
 	}
 	return true;
 }

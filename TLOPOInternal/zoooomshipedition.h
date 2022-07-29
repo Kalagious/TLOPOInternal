@@ -9,7 +9,7 @@ class ZoooomShipEdition : public Module
 {
 public:
 	ZoooomShipEdition(Cheats* cheatsIn);
-	PyObject* tick();
+	bool tick();
 	float fSpeed;
 	Cheats* cheats;
 	RogueFloat* pSpeedFloat;
