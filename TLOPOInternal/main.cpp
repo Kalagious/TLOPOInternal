@@ -22,7 +22,6 @@ void mainCode(HMODULE hModule)
 	SetWindowTextA(::GetConsoleWindow(), "Freebooter");
 
 
-
 	Cheats cheats;
 	cheatsGlobal = &cheats;
 

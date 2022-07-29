@@ -1,4 +1,4 @@
-#include "testinghook.h"
+#include "unamedhook.h"
 #include <vector>
 #include <string>
 #include <sstream>
@@ -8,10 +8,10 @@
 
 extern Cheats* cheatsGlobal;
 
-TestingHook::tTargetPtr TestingHook::oFunction;
+UnamedHook::tTargetPtr UnamedHook::oFunction;
 
 
-void __fastcall TestingHook::hookFunction(int64_t a1, int64_t a2, int64_t a3)
+void __fastcall UnamedHook::hookFunction(int64_t a1, int64_t a2, int64_t a3)
 {
 	Object* tmp = (Object*)a1;
 	std::string tmpStr;
@@ -32,13 +32,13 @@ void __fastcall TestingHook::hookFunction(int64_t a1, int64_t a2, int64_t a3)
 		cheatsGlobal->fly->tick();
 		//printf("%s  -  %p  -  %p  -  %p\n", tmpStr.c_str(), a1, a2, a3);
 	}
-	TestingHook::oFunction(a1, a2, a3);
+	UnamedHook::oFunction(a1, a2, a3);
 }
 
 
-TestingHook::TestingHook(void* moduleBaseIn)
+UnamedHook::UnamedHook(void* moduleBaseIn)
 {
-	hookName = "Testing Hook";
+	hookName = "Unamed Hook";
 	hookLen = 16;
 	viSig = { 0x48, 0x89, 0x5C, 0x24, 0x08, 0x48, 0x89, 0x6C, 0x24, 0x10, 0x48, 0x89, 0x74, 0x24, 0x18, 0x57, 0x48, 0x83, 0xEC, 0x20, 0x48, 0x8B, 0xB1, 0xE0, 0x00, 0x00, 0x00, 0x49, 0x8B, 0xE8, 0x48, 0x8B, 0xFA, 0x48, 0x8B, 0xD9, 0x48, 0x3B, 0xF2 };
 	moduleBase = moduleBaseIn;
@@ -47,14 +47,14 @@ TestingHook::TestingHook(void* moduleBaseIn)
 }
 
 
-bool TestingHook::initialize()
+bool UnamedHook::initialize()
 {
 	targetAddr = signatureScan(viSig, iSigOffset, moduleBase);
 	if (!targetAddr)
 		return false;
 
-	TestingHook::oFunction = (tTargetPtr)(targetAddr);
-	TestingHook::oFunction = (tTargetPtr)DetourFunction64((void*)TestingHook::oFunction, (void*)TestingHook::hookFunction, hookLen);
+	UnamedHook::oFunction = (tTargetPtr)(targetAddr);
+	UnamedHook::oFunction = (tTargetPtr)DetourFunction64((void*)UnamedHook::oFunction, (void*)UnamedHook::hookFunction, hookLen);
 	enabled = true;
 	return true;
 }

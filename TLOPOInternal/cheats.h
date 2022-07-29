@@ -20,6 +20,7 @@ public:
 	Player* localPlayer;
 
 	void* tlopoExe;
+	void* openGl32;
 
 	std::vector<Module*> modules;
 

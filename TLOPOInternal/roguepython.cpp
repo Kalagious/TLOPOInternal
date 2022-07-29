@@ -39,7 +39,7 @@ void RoguePython::readType(PyObject* pValue)
 	for (int i = 0; i < vPyTypes.size(); i++)
 		if (!vPyTypes.at(i))
 			bTypesFound = false;
-	if (bTypesFound)
+	if (bTypesFound || !cheats->hookManager->bHooksInitialized)
 		return;
 
 	char* pTypeName = (char*)((uint64_t*)((uint64_t*)pValue)[1])[3];
@@ -80,7 +80,8 @@ void RoguePython::readAttribute(PyObject* pAttributeName)
 	//		bStringsFound = false;
 	//if (bStringsFound)
 	//	return;
-
+	if (!cheats->hookManager->bHooksInitialized)
+		return;
 
 	PyVarObjectCust* tmp = (PyVarObjectCust*)pAttributeName;
 	std::string tmpAttName(tmp->sName);
